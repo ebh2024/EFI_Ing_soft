@@ -24,6 +24,7 @@ class Flight(models.Model):
 
 class Passenger(models.Model):
     name = models.CharField(max_length=100)
+    document = models.CharField(max_length=20, unique=True, null=True, blank=True)
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
 
