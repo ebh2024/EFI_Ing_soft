@@ -18,7 +18,7 @@ class Flight(models.Model):
     departure_time = models.DateTimeField()
     arrival_time = models.DateTimeField()
     duration = models.DurationField(null=True, blank=True)
-    aircraft = models.ForeignKey(Aircraft, on_delete=models.SET_NULL, null=True)
+    aircraft = models.ForeignKey(Aircraft, on_delete=models.PROTECT, null=True)
 
     def __str__(self):
         return f"{self.flight_number} - {self.origin} to {self.destination}"
@@ -52,8 +52,8 @@ class Seat(models.Model):
 
 
 class Booking(models.Model):
-    flight = models.ForeignKey(Flight, on_delete=models.CASCADE)
-    passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE)
+    flight = models.ForeignKey(Flight, on_delete=models.PROTECT)
+    passenger = models.ForeignKey(Passenger, on_delete=models.PROTECT)
     seat = models.ForeignKey(Seat, on_delete=models.CASCADE, null=True, blank=True)
     booking_date = models.DateField(auto_now_add=True)
 
