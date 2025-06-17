@@ -1,9 +1,10 @@
+from django.core.validators import MinValueValidator
 from django.db import models
 
 class Aircraft(models.Model):
     name = models.CharField(max_length=50)
     model = models.CharField(max_length=50)
-    capacity = models.IntegerField()
+    capacity = models.IntegerField(validators=[MinValueValidator(1)])
     seat_layout = models.JSONField(null=True, blank=True)
     technical_information = models.JSONField(null=True, blank=True)
 
