@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Passengers on {{ flight.flight_number }}</title>
+</head>
+<body>
+    <h1>Passengers on {{ flight.flight_number }}</h1>
+    <ul>
+        {% for passenger in passengers %}
+        <li>{{ passenger.name }} ({{ passenger.document }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Flight, Seat
+from .models import Flight, Seat, Booking
 
 def flight_list(request):
     flights = Flight.objects.all()
@@ -31,3 +31,9 @@ def seat_availability(request, flight_id):
     flight = get_object_or_404(Flight, pk=flight_id)
     seats = Seat.objects.filter(flight=flight)
     return render(request, 'flights/seat_availability.html', {'flight': flight, 'seats': seats})
+
+def passengers_by_flight(request, flight_id):
+    flight = get_object_or_404(Flight, pk=flight_id)
+    bookings = Booking.objects.filter(flight=flight)
+    passengers = [booking.passenger for booking in bookings]
+    return render(request, 'flights/passengers_by_flight.html', {'flight': flight, 'passengers': passengers})
