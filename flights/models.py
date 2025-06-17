@@ -60,3 +60,12 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking for {self.passenger.name} on {self.flight.flight_number}, Seat {self.seat.seat_number}"
+
+
+class Ticket(models.Model):
+    booking = models.ForeignKey(Booking, on_delete=models.CASCADE)
+    ticket_number = models.CharField(max_length=20, unique=True)
+    issue_date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Ticket {self.ticket_number} for {self.booking.passenger.name} on {self.booking.flight.flight_number}"
