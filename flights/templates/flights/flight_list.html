@@ -10,6 +10,7 @@
             <li>
                 {{ flight.flight_number }} - {{ flight.origin }} to {{ flight.destination }}
                 (Duration: {{ flight.duration }}, Aircraft: {{ flight.aircraft }})
+                <a href="{% url 'seat_availability' flight_id=flight.id %}">View Seats</a>
             </li>
         {% endfor %}
     </ul>

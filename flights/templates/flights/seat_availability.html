@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seat Availability for {{ flight.flight_number }}</title>
+</head>
+<body>
+    <h1>Seat Availability for {{ flight.flight_number }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Seat Number</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for seat in seats %}
+            <tr>
+                <td>{{ seat.seat_number }}</td>
+                <td>{{ seat.get_status_display }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
