@@ -2,24 +2,27 @@
 <html>
 <head>
     <title>Seat Availability for {{ flight.flight_number }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Seat Availability for {{ flight.flight_number }}</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Seat Number</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for seat in seats %}
-            <tr>
-                <td>{{ seat.seat_number }}</td>
-                <td>{{ seat.get_status_display }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        <h1>Seat Availability for {{ flight.flight_number }}</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Seat Number</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for seat in seats %}
+                <tr>
+                    <td>{{ seat.seat_number }}</td>
+                    <td>{{ seat.get_status_display }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

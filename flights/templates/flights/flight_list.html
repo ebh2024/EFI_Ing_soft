@@ -2,19 +2,22 @@
 <html>
 <head>
     <title>Flight List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Flight List</h1>
-    <ul>
-        {% for flight in flights %}
-            <li>
+    <div class="container">
+        <h1>Flight List</h1>
+        <ul class="list-group">
+            {% for flight in flights %}
+            <li class="list-group-item">
                 {{ flight.flight_number }} - {{ flight.origin }} to {{ flight.destination }}
                 (Duration: {{ flight.duration }}, Aircraft: {{ flight.aircraft }})
-                <a href="{% url 'seat_availability' flight_id=flight.id %}">View Seats</a>
-                <a href="{% url 'passengers_by_flight' flight_id=flight.id %}">View Passengers</a>
+                <a href="{% url 'seat_availability' flight_id=flight.id %}" class="btn btn-primary">View Seats</a>
+                <a href="{% url 'passengers_by_flight' flight_id=flight.id %}" class="btn btn-info">View Passengers</a>
             </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'login' %}">Login</a>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'login' %}" class="btn btn-secondary">Login</a>
+    </div>
 </body>
 </html>

@@ -2,13 +2,16 @@
 <html>
 <head>
     <title>Passengers on {{ flight.flight_number }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Passengers on {{ flight.flight_number }}</h1>
-    <ul>
-        {% for passenger in passengers %}
-        <li>{{ passenger.name }} ({{ passenger.document }})</li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h1>Passengers on {{ flight.flight_number }}</h1>
+        <ul class="list-group">
+            {% for passenger in passengers %}
+            <li class="list-group-item">{{ passenger.name }} ({{ passenger.document }})</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
