@@ -37,3 +37,6 @@ def passengers_by_flight(request, flight_id):
     bookings = Booking.objects.filter(flight=flight)
     passengers = [booking.passenger for booking in bookings]
     return render(request, 'flights/passengers_by_flight.html', {'flight': flight, 'passengers': passengers})
+
+def home(request):
+    return render(request, 'flights/home.html')

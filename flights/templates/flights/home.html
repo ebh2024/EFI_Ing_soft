@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airline Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Airline Management System</h1>
+        <p>Use the links below to navigate the system:</p>
+        <ul>
+            <li><a href="{% url 'flight_list' %}">View Flights</a></li>
+            <li><a href="{% url 'admin:index' %}">Admin Panel</a></li>
+        </ul>
+    </div>
+</body>
+</html>
