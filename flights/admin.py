@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Flight, Passenger, Booking, Aircraft, Seat, Ticket
+from .models import Flight, Passenger, Booking, Aircraft, Seat, Ticket, Usuario
 
 admin.site.register(Flight)
 admin.site.register(Passenger)
